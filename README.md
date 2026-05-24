@@ -1,165 +1,4 @@
-# trabajo-equipo
-```
-### RegistrarLibro
-Guardar nombre/título -> Entrada
-Guardar Stock -> Entrada
-Guardar autor -> Entrada
-Guardar Disponibilidad -> Entrada
-
-### BuscarLibro
-Introducir nombre del libro y autor -> Entradas
-Buscar libro
-Buscar autor
-Mostrar disponibilidad -> Entrada
-Mostrar stock -> Salida
-
-### RegistrarPrestamo
-Introducir nombre -> entrada
-Buscar libro
-Si está disponible reducir reducir stock en uno
-Actualizar disponibilidad
-Si no disponible Mostrar “No hay libros para prestar” -> salida
-
-### RegistrarDevolución
-Introducir nombre -> entrada
-Buscar libro
-Aumentar stock en 2
-Actualizar stock
-Mostrar libro devuelto correctamente -> salida
-
-### MostrarCatálogo
-Mostrar nombre del libro -> salida
-Mostrar autor -> salida
-Mostrar stock -> salida
-Mostrar disponibilidad -> salida
-Repetir hasta que no haya libros
-
-### MostrarPréstamosActivos
-Si el stock es menos a la cantidad total de libros mostrar el nombre del libro y cantidad/stock
-Repetir por cada libro existente en la librería
-
-### GenerarReporte
-Mostrar libros -> salida
-Llamar Mostrar catálogo -> salida 
-Mostrar “préstamos actuales: “ -> salida
-Llamar préstamos activos -> salida
-
-
-## Pseudocódigo
-Inicio
-Clase Libro
-		Atributos:
-		título
-		autor
-		ejemplaresDisponibles
-		
-
-	Método constructor(tit, aut, eD)
-		título = tit
-		autor = aut
-		ejemplaresDisponibles = eD
-		Fin Método
-	Fin Clase
-	
-	Clase Catálogo
-		Atributo
-			Libros[] -> Diccionario
-			Préstamos[] -> Diccionario
-		Método registrarLibro(titulo, autor, eD)
-			Si titulo No existe en Libros Entonces
-				Libros[titulo] = nuevo Libro(titulo, autor, eD)
-					Mostrar(“Libro registrado correctamente”)
-			Si no
-				Libros[titulo].ejemplaresDisponibles += eD
-			Fin Si
-		Fin Método
-		
-		Método buscarLibro(titulo)
-			Si titulo existe en Libros
-				Retornar Libros[titulo]
-			Si no
-				Retornar Null
-			Fin Si
-		Fin Método
-
-		Método mostrarDisponibilidad(titulo)
-			libro = buscarLibro(titulo)
-			Si libro = Null Entonces
-				Mostrar(“Libro no encontrado”)
-					Retornar falso
-			Fin Si
-			Si libro.ejemplaresDisponibles > 0 Entonces
-				Retornar verdadero
-			Si no
-				Retornar falso
-			Fin Si
-		Fin Método
-
-		Método registrarPrestamos(usuario, titulo)
-			disponibilidad = Mostrar (mostrarDisponibilidad(titulo))
-			libro = buscarLibro(titulo)
-			Si disponibilidad == verdadero Entonces
-				Si usuario Existe en Préstamos Entonces
-					Mostrar(“Devuelve el otro libro primero”)
-				Si no 
-					Prestamos[usuario] = nuevo Préstamo (usuario,titulo)
-					libro.ejemplaresDisponibles --
-				Fin Si
-			Si no Entonces
-				Mostrar(“Libro no disponible”)
-			Fin Si
-		Fin Método
-
-		Método registrarDevolución(usuario)
-			Si usuario Existe en Préstamos Entonces
-				libro = buscarLibro(titulo)
-				libro.ejemplaresDisponibles ++
-				Eliminar usuario de Préstamos
-			Sí no
-				Mostrar(“Este usuario no tiene préstamos activos”)
-			Fin Si
-		Fin Método
-
-
-
-
-
-
-
-
-
-
-
-		Método mostrarCatálogo()
-			Por cada libro en Libros[] hacer
-				Mostrar(libro.titulo + “,”)
-				Mostrar(libro.autor + “,”)
-				disp = mostrarDisponibilidad(libro.titulo)
-				Si disp = verdadero
-					Mostrar (“Disponible”)
-				Si no
-					Mostrar (“No disponible”)
-				Fin Si
-			Fin Por
-		Fin Método
-		
-Método mostrarPrestamosActivos()
-	Por cada usuario en Préstamos[] hacer
-		Mostrar (Usuario.usuario + “, libro prestado:”)
-		Mostrar (usuario.titulo)
-	Fin Por
-Fin Método
-
-Método generarRegistro()
-Mostrar (“Libros existentes:”)
-Mostrar (mostrarCatálogo)
-Mostrar (“Préstamos activos :”) 
-Mostrar (mostrarPrestamosActivos)
-		Fin Método
-	Fin Clase
-Fin
-Diagramas de Mermaid
-```
+#2
 
 ```mermaid
 flowchart TB
@@ -213,10 +52,163 @@ W --> X[Mostrar préstamos activos]
 
 X --> Y[Fin]
 ```
+#3
+
+### RegistrarLibro
+Guardar nombre/título -> Entrada
+Guardar Stock -> Entrada
+Guardar autor -> Entrada
+Guardar Disponibilidad -> Entrada
+
+### BuscarLibro
+Introducir nombre del libro y autor -> Entradas
+Buscar libro
+Buscar autor
+Mostrar disponibilidad -> Entrada
+Mostrar stock -> Salida
+
+### RegistrarPrestamo
+Introducir nombre -> entrada
+Buscar libro
+Si está disponible reducir reducir stock en uno
+Actualizar disponibilidad
+Si no disponible Mostrar “No hay libros para prestar” -> salida
+
+### RegistrarDevolución
+Introducir nombre -> entrada
+Buscar libro
+Aumentar stock en 2
+Actualizar stock
+Mostrar libro devuelto correctamente -> salida
+
+### MostrarCatálogo
+Mostrar nombre del libro -> salida
+Mostrar autor -> salida
+Mostrar stock -> salida
+Mostrar disponibilidad -> salida
+Repetir hasta que no haya libros
+
+### MostrarPréstamosActivos
+Si el stock es menos a la cantidad total de libros mostrar el nombre del libro y cantidad/stock
+Repetir por cada libro existente en la librería
+
+### GenerarReporte
+Mostrar libros -> salida
+Llamar Mostrar catálogo -> salida 
+Mostrar “préstamos actuales: “ -> salida
+Llamar préstamos activos -> salida
+
+
+## Pseudocódigo
+Inicio
+Clase Libro
+		Atributos:
+		título
+		autor
+		ejemplaresDisponibles
+		
+Método constructor(tit, aut, eD)
+		título = tit
+		autor = aut
+		ejemplaresDisponibles = eD
+		Fin Método
+	Fin Clase
+	
+Clase Catálogo
+		Atributo
+			Libros[] -> Diccionario
+			Préstamos[] -> Diccionario
+		Método registrarLibro(titulo, autor, eD)
+			Si titulo No existe en Libros Entonces
+				Libros[titulo] = nuevo Libro(titulo, autor, eD)
+					Mostrar(“Libro registrado correctamente”)
+			Si no
+				Libros[titulo].ejemplaresDisponibles += eD
+			Fin Si
+		Fin Método
+		
+Método buscarLibro(titulo)
+			Si titulo existe en Libros
+				Retornar Libros[titulo]
+			Si no
+				Retornar Null
+			Fin Si
+		Fin Método
+
+Método mostrarDisponibilidad(titulo)
+			libro = buscarLibro(titulo)
+			Si libro = Null Entonces
+				Mostrar(“Libro no encontrado”)
+					Retornar falso
+			Fin Si
+			Si libro.ejemplaresDisponibles > 0 Entonces
+				Retornar verdadero
+			Si no
+				Retornar falso
+			Fin Si
+		Fin Método
+
+Método registrarPrestamos(usuario, titulo)
+			disponibilidad = Mostrar (mostrarDisponibilidad(titulo))
+			libro = buscarLibro(titulo)
+			Si disponibilidad == verdadero Entonces
+				Si usuario Existe en Préstamos Entonces
+					Mostrar(“Devuelve el otro libro primero”)
+				Si no 
+					Prestamos[usuario] = nuevo Préstamo (usuario,titulo)
+					libro.ejemplaresDisponibles --
+				Fin Si
+			Si no Entonces
+				Mostrar(“Libro no disponible”)
+			Fin Si
+		Fin Método
+
+Método registrarDevolución(usuario)
+			Si usuario Existe en Préstamos Entonces
+				libro = buscarLibro(titulo)
+				libro.ejemplaresDisponibles ++
+				Eliminar usuario de Préstamos
+			Sí no
+				Mostrar(“Este usuario no tiene préstamos activos”)
+			Fin Si
+		Fin Método
+
+Método mostrarCatálogo()
+	Por cada libro en Libros[] hacer
+		Mostrar(libro.titulo + “,”)
+		Mostrar(libro.autor + “,”)
+		disp = mostrarDisponibilidad(libro.titulo)
+		Si disp = verdadero
+			Mostrar (“Disponible”)
+		Si no
+			Mostrar (“No disponible”)
+		Fin Si
+	Fin Por
+Fin Método
+		
+Método mostrarPrestamosActivos()
+	Por cada usuario en Préstamos[] hacer
+		Mostrar (Usuario.usuario + “, libro prestado:”)
+		Mostrar (usuario.titulo)
+	Fin Por
+Fin Método
+
+Método generarRegistro()
+Mostrar (“Libros existentes:”)
+Mostrar (mostrarCatálogo)
+Mostrar (“Préstamos activos :”) 
+Mostrar (mostrarPrestamosActivos)
+		Fin Método
+	Fin Clase
+Fin
+Diagramas de Mermaid
 
 
 
 
+
+
+#4
 ```mermaid
 flowchart TB
     A([Inicio]) --> B[Definir Clase Libro]
