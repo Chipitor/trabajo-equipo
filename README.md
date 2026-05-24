@@ -217,13 +217,13 @@ X --> Y[Fin]
 
 
 
-
+```mermaid
 flowchart TB
     A([Inicio]) --> B[Definir Clase Libro]
     
     %% Clase Libro
     B --> B1[Atributos:<br/>titulo<br/>autor<br/>ejemplaresDisponibles]
-    B1 --> B2[Constructor(tit, aut, eD)]
+    B1 --> B2["Constructor(tit, aut, eD)"]
     B2 --> B3[titulo = tit]
     B3 --> B4[autor = aut]
     B4 --> B5[ejemplaresDisponibles = eD]
@@ -231,14 +231,14 @@ flowchart TB
     %% Clase Catalogo
     B5 --> C[Definir Clase Catalogo]
 
-    C --> C1[Atributos:<br/>Libros[] Diccionario<br/>Prestamos[] Diccionario]
+    C --> C1["Atributos:<br/>Libros[] Diccionario<br/>Prestamos[] Diccionario"]
 
     %% registrarLibro
     C1 --> D[Metodo registrarLibro]
     D --> D1{titulo existe en Libros?}
 
     D1 -- No --> D2[Crear nuevo Libro]
-    D2 --> D3[Libros[titulo] = nuevo Libro]
+    D2 --> D3["Libros[titulo] = nuevo Libro"]
     D3 --> D4[Mostrar: Libro registrado correctamente]
 
     D1 -- Si --> D5[Incrementar ejemplaresDisponibles]
@@ -247,22 +247,22 @@ flowchart TB
     D4 --> E[Metodo buscarLibro]
     D5 --> E
 
-    E --> E1{titulo existe en Libros?}
+    E --> E1{"¿Título existe en Libros?"}
 
-    E1 -- Si --> E2[Retornar Libros[titulo]]
+    E1 -- Si --> E2["Retornar Libros[titulo]"]
     E1 -- No --> E3[Retornar Null]
 
     %% mostrarDisponibilidad
     E2 --> F[Metodo mostrarDisponibilidad]
     E3 --> F
 
-    F --> F1[libro = buscarLibro(titulo)]
-    F1 --> F2{libro == Null?}
+    F --> F1["libro = buscarLibro(titulo)"]
+    F1 --> F2{"¿libro == Null?"}
 
     F2 -- Si --> F3[Mostrar: Libro no encontrado]
     F3 --> F4[Retornar falso]
 
-    F2 -- No --> F5{ejemplaresDisponibles > 0?}
+    F2 -- No --> F5{"¿ejemplaresDisponibles > 0?"}
 
     F5 -- Si --> F6[Retornar verdadero]
     F5 -- No --> F7[Retornar falso]
@@ -274,14 +274,14 @@ flowchart TB
 
     G --> G1[disponibilidad = mostrarDisponibilidad]
     G1 --> G2[libro = buscarLibro]
-    G2 --> G3{disponibilidad == verdadero?}
+    G2 --> G3{"¿disponibilidad == verdadero?"}
 
-    G3 -- Si --> G4{usuario existe en Prestamos?}
+    G3 -- Si --> G4{"¿usuario existe en Prestamos?"}
 
     G4 -- Si --> G5[Mostrar: Devuelve el otro libro primero]
 
     G4 -- No --> G6[Crear nuevo Prestamo]
-    G6 --> G7[Prestamos[usuario] = Prestamo]
+    G6 --> G7["Prestamos[usuario] = Prestamo"]
     G7 --> G8[Disminuir ejemplaresDisponibles]
 
     G3 -- No --> G9[Mostrar: Libro no disponible]
@@ -291,7 +291,7 @@ flowchart TB
     G8 --> H
     G9 --> H
 
-    H --> H1{usuario existe en Prestamos?}
+    H --> H1{"¿usuario existe en Prestamos?"}
 
     H1 -- Si --> H2[libro = buscarLibro]
     H2 --> H3[Incrementar ejemplaresDisponibles]
@@ -303,13 +303,13 @@ flowchart TB
     H4 --> I[Metodo mostrarCatalogo]
     H5 --> I
 
-    I --> I1[Recorrer Libros[]]
+    I --> I1["Recorrer Libros[]"]
 
     I1 --> I2[Mostrar titulo]
     I2 --> I3[Mostrar autor]
     I3 --> I4[disp = mostrarDisponibilidad]
 
-    I4 --> I5{disp == verdadero?}
+    I4 --> I5{"¿disp == verdadero?"}
 
     I5 -- Si --> I6[Mostrar: Disponible]
     I5 -- No --> I7[Mostrar: No disponible]
@@ -318,7 +318,7 @@ flowchart TB
     I6 --> J[Metodo mostrarPrestamosActivos]
     I7 --> J
 
-    J --> J1[Recorrer Prestamos[]]
+    J --> J1["Recorrer Prestamos[]"]
     J1 --> J2[Mostrar usuario]
     J2 --> J3[Mostrar titulo prestado]
 
@@ -331,6 +331,6 @@ flowchart TB
     K3 --> K4[Mostrar mostrarPrestamosActivos]
 
     K4 --> L([Fin])
-
+```
 
 
