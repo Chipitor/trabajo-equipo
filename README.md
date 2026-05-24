@@ -1,3 +1,11 @@
+#Sistema de biblioteca
+
+#1
+
+A nuestro equipo le tocó hacer un sistema para una biblioteca, el cual tendrá la funcion de registrar libros, mostrar cuantos libros hay, si hay o no ejemplares disponibles, ademas de tambien un sistema de prestamos para saber que ejemplares se prestaron y a quienes, y si la persona tiene un ejemplar a su nombre, no poder prestarles hasta que devuelvan el libro, y finalmente mostrar el catalogo que tiene de libros
+
+Esto se usará tanto para el personal de la biblioteca para los prestamos y control, como para los clientes en el apartedo de buscar libros
+
 #2
 
 ```mermaid
