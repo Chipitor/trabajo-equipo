@@ -1,12 +1,12 @@
-#Sistema de biblioteca
+# Sistema de biblioteca
 
-#1
+# 1
 
 A nuestro equipo le tocó hacer un sistema para una biblioteca, el cual tendrá la funcion de registrar libros, mostrar cuantos libros hay, si hay o no ejemplares disponibles, ademas de tambien un sistema de prestamos para saber que ejemplares se prestaron y a quienes, y si la persona tiene un ejemplar a su nombre, no poder prestarles hasta que devuelvan el libro, y finalmente mostrar el catalogo que tiene de libros
 
 Esto se usará tanto para el personal de la biblioteca para los prestamos y control, como para los clientes en el apartedo de buscar libros y conocer si hay existencias disponibles
 
-#2
+# 2
 
 ```mermaid
 flowchart TB
@@ -60,7 +60,6 @@ W --> X[Mostrar préstamos activos]
 
 X --> Y[Fin]
 ```
-#3 Pseudocódigo
 
 ### RegistrarLibro
 
@@ -143,7 +142,7 @@ Mostrar “préstamos actuales: “ -> salida
 Llamar préstamos activos -> salida
 
 
-## Pseudocódigo
+# 3 Pseudocódigo
 
 Inicio
 
@@ -251,7 +250,7 @@ Inicio
 	Fin
 Diagramas de Mermaid
 
-#4
+# 4
 ```mermaid
 flowchart TB
     A([Inicio]) --> B[Definir Clase Libro]
