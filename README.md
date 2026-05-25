@@ -63,83 +63,83 @@ X --> Y[Fin]
 
 ### RegistrarLibro
 
-Guardar nombre/título -> Entrada
+1. Guardar nombre/título -> Entrada
 
-Guardar Stock -> Entrada
+2. Guardar Stock -> Entrada
 
-Guardar autor -> Entrada
+3. Guardar autor -> Entrada
 
-Guardar Disponibilidad -> Entrada
+4. Guardar Disponibilidad -> Entrada
 
 
 ### BuscarLibro
 
-Introducir nombre del libro y autor -> Entradas
+1. Introducir nombre del libro y autor -> Entradas
 
-Buscar libro
+2. Buscar libro
 
-Buscar autor
+3. Buscar autor
 
-Mostrar disponibilidad -> Entrada
+4. Mostrar disponibilidad -> Entrada
 
-Mostrar stock -> Salida
+5. Mostrar stock -> Salida
 
 
 ### RegistrarPrestamo
 
-Introducir nombre -> entrada
+1. Introducir nombre -> entrada
 
-Buscar libro
+2. Buscar libro
 
-Si está disponible reducir reducir stock en uno
+3. Si está disponible reducir reducir stock en uno
 
-Actualizar disponibilidad
+4. Actualizar disponibilidad
 
-Si no disponible Mostrar “No hay libros para prestar” -> salida
+5. Si no disponible Mostrar “No hay libros para prestar” -> salida
 
 
 ### RegistrarDevolución
 
-Introducir nombre -> entrada
+1. Introducir nombre -> entrada
 
-Buscar libro
+2. Buscar libro
 
-Aumentar stock en 2
+3. Aumentar stock en 2
 
-Actualizar stock
+4. Actualizar stock
 
-Mostrar libro devuelto correctamente -> salida
+5. Mostrar libro devuelto correctamente -> salida
 
 
 ### MostrarCatálogo
 
-Mostrar nombre del libro -> salida
+1. Mostrar nombre del libro -> salida
 
-Mostrar autor -> salida
+2. Mostrar autor -> salida
 
-Mostrar stock -> salida
+3. Mostrar stock -> salida
 
-Mostrar disponibilidad -> salida
+4. Mostrar disponibilidad -> salida
 
-Repetir hasta que no haya libros
+5. Repetir hasta que no haya libros
 
 
 ### MostrarPréstamosActivos
 
-Si el stock es menos a la cantidad total de libros mostrar el nombre del libro y cantidad/stock
+1. Si el stock es menos a la cantidad total de libros mostrar el nombre del libro y cantidad/stock
 
-Repetir por cada libro existente en la librería
+2. Repetir por cada libro existente en la librería
 
 
 ### GenerarReporte
 
-Mostrar libros -> salida
+1. Mostrar libros -> salida
 
-Llamar Mostrar catálogo -> salida 
+2. Llamar Mostrar catálogo -> salida 
 
-Mostrar “préstamos actuales: “ -> salida
+3. Mostrar “préstamos actuales: “ -> salida
 
-Llamar préstamos activos -> salida
+4. Llamar préstamos activos -> salida
 
 
 # 3 Pseudocódigo
