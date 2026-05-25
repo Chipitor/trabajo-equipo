@@ -7,7 +7,8 @@ A nuestro equipo le tocó hacer un sistema para una biblioteca, el cual tendrá 
 Esto se usará tanto para el personal de la biblioteca para los prestamos y control, como para los clientes en el apartedo de buscar libros y conocer si hay existencias disponibles
 
 # 2
-# Diagrama general del sistema
+## Diagrama de flujo
+### Diagrama general del sistema
 
 Este primer diagrama muestra la relación entre las clases principales y cómo se conectan los métodos.
 Después incluyo un diagrama independiente para cada clase y diagramas detallados para cada método.
@@ -44,7 +45,7 @@ flowchart TD
 
 ---
 
-# Clase Libro
+### Clase Libro
 
 ```mermaid
 flowchart TD
@@ -64,7 +65,7 @@ flowchart TD
 
 ---
 
-# Clase Catálogo
+### Clase Catálogo
 
 ```mermaid
 flowchart TD
@@ -89,7 +90,7 @@ flowchart TD
 
 ---
 
-# Método registrarLibro(titulo, autor, eD)
+### Método registrarLibro(titulo, autor, eD)
 
 ```mermaid
 flowchart TD
@@ -113,7 +114,7 @@ flowchart TD
 
 ---
 
-# Método buscarLibro(titulo)
+### Método buscarLibro(titulo)
 
 ```mermaid
 flowchart TD
@@ -133,7 +134,7 @@ flowchart TD
 
 ---
 
-# Método mostrarDisponibilidad(titulo)
+### Método mostrarDisponibilidad(titulo)
 
 ```mermaid
 flowchart TD
@@ -163,7 +164,7 @@ flowchart TD
 
 ---
 
-# Método registrarPrestamos(usuario, titulo)
+### Método registrarPrestamos(usuario, titulo)
 
 ```mermaid
 flowchart TD
@@ -197,7 +198,7 @@ flowchart TD
 
 ---
 
-# Método registrarDevolucion(usuario)
+### Método registrarDevolucion(usuario)
 
 ```mermaid
 flowchart TD
@@ -221,7 +222,7 @@ flowchart TD
 
 ---
 
-# Método mostrarCatalogo()
+### Método mostrarCatalogo()
 
 ```mermaid
 flowchart TD
@@ -253,7 +254,7 @@ flowchart TD
 
 ---
 
-# Método mostrarPrestamosActivos()
+### Método mostrarPrestamosActivos()
 
 ```mermaid
 flowchart TD
@@ -275,7 +276,7 @@ flowchart TD
 
 ---
 
-# Método generarRegistro()
+### Método generarRegistro()
 
 ```mermaid
 flowchart TD
@@ -294,7 +295,8 @@ flowchart TD
 ```
 
 
-
+# 2
+## Problemas
 
 
 ### RegistrarLibro
@@ -486,4 +488,5 @@ Inicio
 	Fin
 Diagramas de Mermaid
 
-# 4 Reflexiones
+# 4 
+## Reflexiones
