@@ -251,120 +251,347 @@ Inicio
 Diagramas de Mermaid
 
 # 4
+# Diagrama general del sistema
+
+Este primer diagrama muestra la relación entre las clases principales y cómo se conectan los métodos.
+Después incluyo un diagrama independiente para cada clase y diagramas detallados para cada método.
+
 ```mermaid
-flowchart TB
-    A([Inicio]) --> B[Definir Clase Libro]
-    
-    %% Clase Libro
-    B --> B1[Atributos:<br/>titulo<br/>autor<br/>ejemplaresDisponibles]
-    B1 --> B2["Constructor(tit, aut, eD)"]
-    B2 --> B3[titulo = tit]
-    B3 --> B4[autor = aut]
-    B4 --> B5[ejemplaresDisponibles = eD]
+flowchart TD
 
-    %% Clase Catalogo
-    B5 --> C[Definir Clase Catalogo]
+    A[Inicio]
 
-    C --> C1["Atributos:<br/>Libros[] Diccionario<br/>Prestamos[] Diccionario"]
+    A --> B[Clase Libro]
+    A --> C[Clase Catálogo]
 
-    %% registrarLibro
-    C1 --> D[Metodo registrarLibro]
-    D --> D1{titulo existe en Libros?}
+    B --> B1[Constructor]
 
-    D1 -- No --> D2[Crear nuevo Libro]
-    D2 --> D3["Libros[titulo] = nuevo Libro"]
-    D3 --> D4[Mostrar: Libro registrado correctamente]
+    C --> C1["registrarLibro()"]
+    C --> C2["buscarLibro()"]
+    C --> C3["mostrarDisponibilidad()"]
+    C --> C4["registrarPrestamos()"]
+    C --> C5["registrarDevolucion()"]
+    C --> C6["mostrarCatalogo()"]
+    C --> C7["mostrarPrestamosActivos()"]
+    C --> C8["generarRegistro()"]
+```
 
-    D1 -- Si --> D5[Incrementar ejemplaresDisponibles]
+---
 
-    %% buscarLibro
-    D4 --> E[Metodo buscarLibro]
-    D5 --> E
+# Clase Libro
 
-    E --> E1{"¿Título existe en Libros?"}
+Este diagrama representa únicamente la estructura de la clase `Libro`.
 
-    E1 -- Si --> E2["Retornar Libros[titulo]"]
-    E1 -- No --> E3[Retornar Null]
+```mermaid
+flowchart TD
 
-    %% mostrarDisponibilidad
-    E2 --> F[Metodo mostrarDisponibilidad]
-    E3 --> F
+    A[Clase Libro]
 
-    F --> F1["libro = buscarLibro(titulo)"]
-    F1 --> F2{"¿libro == Null?"}
+    A --> B[Atributos]
 
-    F2 -- Si --> F3[Mostrar: Libro no encontrado]
-    F3 --> F4[Retornar falso]
+    B --> B1[titulo]
+    B --> B2[autor]
+    B --> B3[ejemplaresDisponibles]
 
-    F2 -- No --> F5{"¿ejemplaresDisponibles > 0?"}
+    A --> C[Método Constructor]
+```
 
-    F5 -- Si --> F6[Retornar verdadero]
-    F5 -- No --> F7[Retornar falso]
+---
 
-    %% registrarPrestamos
-    F4 --> G[Metodo registrarPrestamos]
-    F6 --> G
-    F7 --> G
+# Método constructor(tit, aut, eD)
 
-    G --> G1[disponibilidad = mostrarDisponibilidad]
-    G1 --> G2[libro = buscarLibro]
-    G2 --> G3{"¿disponibilidad == verdadero?"}
+Este método inicializa un objeto Libro.
 
-    G3 -- Si --> G4{"¿usuario existe en Prestamos?"}
+```mermaid
+flowchart TD
 
-    G4 -- Si --> G5[Mostrar: Devuelve el otro libro primero]
+    A[Inicio Constructor]
 
-    G4 -- No --> G6[Crear nuevo Prestamo]
-    G6 --> G7["Prestamos[usuario] = Prestamo"]
-    G7 --> G8[Disminuir ejemplaresDisponibles]
+    A --> B[Recibir tit, aut, eD]
 
-    G3 -- No --> G9[Mostrar: Libro no disponible]
+    B --> C[titulo = tit]
 
-    %% registrarDevolucion
-    G5 --> H[Metodo registrarDevolucion]
-    G8 --> H
-    G9 --> H
+    C --> D[autor = aut]
 
-    H --> H1{"¿usuario existe en Prestamos?"}
+    D --> E[ejemplaresDisponibles = eD]
 
-    H1 -- Si --> H2[libro = buscarLibro]
-    H2 --> H3[Incrementar ejemplaresDisponibles]
-    H3 --> H4[Eliminar usuario de Prestamos]
+    E --> F[Fin Constructor]
+```
 
-    H1 -- No --> H5[Mostrar: Usuario no tiene prestamos activos]
+---
 
-    %% mostrarCatalogo
-    H4 --> I[Metodo mostrarCatalogo]
-    H5 --> I
+# Clase Catálogo
 
-    I --> I1["Recorrer Libros[]"]
+Este diagrama representa la estructura completa de la clase `Catálogo`.
 
-    I1 --> I2[Mostrar titulo]
-    I2 --> I3[Mostrar autor]
-    I3 --> I4[disp = mostrarDisponibilidad]
+```mermaid
+flowchart TD
 
-    I4 --> I5{"¿disp == verdadero?"}
+    A[Clase Catalogo]
 
-    I5 -- Si --> I6[Mostrar: Disponible]
-    I5 -- No --> I7[Mostrar: No disponible]
+    A --> B[Atributos]
 
-    %% mostrarPrestamosActivos
-    I6 --> J[Metodo mostrarPrestamosActivos]
-    I7 --> J
+    B --> B1[Libros Diccionario]
+    B --> B2[Prestamos Diccionario]
 
-    J --> J1["Recorrer Prestamos[]"]
-    J1 --> J2[Mostrar usuario]
-    J2 --> J3[Mostrar titulo prestado]
+    A --> C["registrarLibro()"]
+    A --> D["buscarLibro()"]
+    A --> E["mostrarDisponibilidad()"]
+    A --> F["registrarPrestamos()"]
+    A --> G["registrarDevolucion()"]
+    A --> H["mostrarCatalogo()"]
+    A --> I["mostrarPrestamosActivos()"]
+    A --> J["generarRegistro()"]
+```
 
-    %% generarRegistro
-    J3 --> K[Metodo generarRegistro]
+---
 
-    K --> K1[Mostrar: Libros existentes]
-    K1 --> K2[Mostrar mostrarCatalogo]
-    K2 --> K3[Mostrar: Prestamos activos]
-    K3 --> K4[Mostrar mostrarPrestamosActivos]
+# Método registrarLibro(titulo, autor, eD)
 
-    K4 --> L([Fin])
+Explicación:
+
+* Verifica si el libro ya existe.
+* Si no existe, lo crea.
+* Si ya existe, aumenta la cantidad de ejemplares.
+
+```mermaid
+flowchart TD
+
+    A[Inicio]
+
+    A --> B{titulo existe en Libros?}
+
+    B -- No --> C[Crear nuevo Libro]
+
+    C --> D[Guardar en Libros]
+
+    D --> E[Mostrar Libro registrado correctamente]
+
+    E --> F[Fin]
+
+    B -- Si --> G[Incrementar ejemplaresDisponibles]
+
+    G --> F
+```
+
+---
+
+# Método buscarLibro(titulo)
+
+Explicación:
+
+* Busca el libro dentro del diccionario.
+* Retorna el libro si existe.
+* Retorna Null si no existe.
+
+```mermaid
+flowchart TD
+
+    A[Inicio]
+
+    A --> B{titulo existe en Libros?}
+
+    B -- Si --> C[Retornar Libros titulo]
+
+    B -- No --> D[Retornar Null]
+
+    C --> E[Fin]
+
+    D --> E
+```
+
+---
+
+# Método mostrarDisponibilidad(titulo)
+
+Explicación:
+
+* Busca el libro.
+* Verifica si existe.
+* Comprueba si tiene ejemplares disponibles.
+
+```mermaid
+flowchart TD
+
+    A[Inicio]
+
+    A --> B[libro = buscarLibro]
+
+    B --> C{libro es Null?}
+
+    C -- Si --> D[Mostrar Libro no encontrado]
+
+    D --> E[Retornar falso]
+
+    E --> F[Fin]
+
+    C -- No --> G{ejemplaresDisponibles > 0?}
+
+    G -- Si --> H[Retornar verdadero]
+
+    G -- No --> I[Retornar falso]
+
+    H --> F
+
+    I --> F
+```
+
+---
+
+# Método registrarPrestamos(usuario, titulo)
+
+Explicación:
+
+* Verifica disponibilidad.
+* Comprueba si el usuario ya tiene préstamo.
+* Registra el préstamo y reduce existencias.
+
+```mermaid
+flowchart TD
+
+    A[Inicio]
+
+    A --> B[mostrarDisponibilidad]
+
+    B --> C[buscarLibro]
+
+    C --> D{Disponible?}
+
+    D -- Si --> E{Usuario ya tiene prestamo?}
+
+    E -- Si --> F[Mostrar Devuelve el otro libro primero]
+
+    F --> G[Fin]
+
+    E -- No --> H[Crear nuevo Prestamo]
+
+    H --> I[Guardar en Prestamos]
+
+    I --> J[Reducir ejemplaresDisponibles]
+
+    J --> G
+
+    D -- No --> K[Mostrar Libro no disponible]
+
+    K --> G
+```
+
+---
+
+# Método registrarDevolucion(usuario)
+
+Explicación:
+
+* Verifica si el usuario tiene un préstamo activo.
+* Incrementa disponibilidad.
+* Elimina el préstamo.
+
+```mermaid
+flowchart TD
+
+    A[Inicio]
+
+    A --> B{Usuario existe en Prestamos?}
+
+    B -- Si --> C[buscarLibro]
+
+    C --> D[Incrementar ejemplaresDisponibles]
+
+    D --> E[Eliminar usuario de Prestamos]
+
+    E --> F[Fin]
+
+    B -- No --> G[Mostrar usuario sin prestamos activos]
+
+    G --> F
+```
+
+---
+
+# Método mostrarCatalogo()
+
+Explicación:
+
+* Recorre todos los libros.
+* Muestra datos y disponibilidad.
+
+```mermaid
+flowchart TD
+
+    A[Inicio]
+
+    A --> B[Recorrer Libros]
+
+    B --> C[Mostrar titulo]
+
+    C --> D[Mostrar autor]
+
+    D --> E[mostrarDisponibilidad]
+
+    E --> F{Disponible?}
+
+    F -- Si --> G[Mostrar Disponible]
+
+    F -- No --> H[Mostrar No disponible]
+
+    G --> I{Quedan libros?}
+
+    H --> I
+
+    I -- Si --> B
+
+    I -- No --> J[Fin]
+```
+
+---
+
+# Método mostrarPrestamosActivos()
+
+Explicación:
+
+* Recorre todos los préstamos activos.
+* Muestra usuario y libro prestado.
+
+```mermaid
+flowchart TD
+
+    A[Inicio]
+
+    A --> B[Recorrer Prestamos]
+
+    B --> C[Mostrar usuario]
+
+    C --> D[Mostrar titulo del libro]
+
+    D --> E{Quedan prestamos?}
+
+    E -- Si --> B
+
+    E -- No --> F[Fin]
+```
+
+---
+
+# Método generarRegistro()
+
+Explicación:
+
+* Genera un reporte general del sistema.
+
+```mermaid
+flowchart TD
+
+    A[Inicio]
+
+    A --> B[Mostrar Libros existentes]
+
+    B --> C[Ejecutar mostrarCatalogo]
+
+    C --> D[Mostrar Prestamos activos]
+
+    D --> E[Ejecutar mostrarPrestamosActivos]
+
+    E --> F[Fin]
 ```
 
 
