@@ -60,7 +60,7 @@ W --> X[Mostrar préstamos activos]
 
 X --> Y[Fin]
 ```
-#3
+#3 Pseudocódigo
 
 ### RegistrarLibro
 
