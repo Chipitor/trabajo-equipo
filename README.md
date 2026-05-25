@@ -264,8 +264,6 @@ flowchart TD
     A --> B[Clase Libro]
     A --> C[Clase Catálogo]
 
-    B --> B1[Constructor]
-
     C --> C1["registrarLibro()"]
     C --> C2["buscarLibro()"]
     C --> C3["mostrarDisponibilidad()"]
@@ -275,7 +273,7 @@ flowchart TD
     C --> C7["mostrarPrestamosActivos()"]
     C --> C8["generarRegistro()"]
 
-	B1 --> D[Fin]
+	B --> D[Fin]
 	C1 --> D
 	C2 --> D
 	C3 --> D
