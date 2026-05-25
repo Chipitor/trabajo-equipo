@@ -274,6 +274,18 @@ flowchart TD
     C --> C6["mostrarCatalogo()"]
     C --> C7["mostrarPrestamosActivos()"]
     C --> C8["generarRegistro()"]
+
+	B1 --> D[Fin]
+	C1 --> D
+	C2 --> D
+	C3 --> D
+	C4 --> D
+	C5 --> D
+	C6 --> D
+	C7 --> D
+ 	C8 --> D
+
+
 ```
 
 ---
