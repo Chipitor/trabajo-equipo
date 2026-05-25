@@ -290,8 +290,6 @@ flowchart TD
 
 # Clase Libro
 
-Este diagrama representa únicamente la estructura de la clase `Libro`.
-
 ```mermaid
 flowchart TD
 
@@ -303,36 +301,14 @@ flowchart TD
     B --> B2[autor]
     B --> B3[ejemplaresDisponibles]
 
-    A --> C[Método Constructor]
-```
-
----
-
-# Método constructor(tit, aut, eD)
-
-Este método inicializa un objeto Libro.
-
-```mermaid
-flowchart TD
-
-    A[Inicio Constructor]
-
-    A --> B[Recibir tit, aut, eD]
-
-    B --> C[titulo = tit]
-
-    C --> D[autor = aut]
-
-    D --> E[ejemplaresDisponibles = eD]
-
-    E --> F[Fin Constructor]
+    B1 --> C[Método Constructor]
+	B2 --> C
+	B3 --> C
 ```
 
 ---
 
 # Clase Catálogo
-
-Este diagrama representa la estructura completa de la clase `Catálogo`.
 
 ```mermaid
 flowchart TD
@@ -342,27 +318,22 @@ flowchart TD
     A --> B[Atributos]
 
     B --> B1[Libros Diccionario]
-    B --> B2[Prestamos Diccionario]
+    B1 --> B2[Prestamos Diccionario]
+	B2 --> C[Fin Atributos]
 
-    A --> C["registrarLibro()"]
-    A --> D["buscarLibro()"]
-    A --> E["mostrarDisponibilidad()"]
-    A --> F["registrarPrestamos()"]
-    A --> G["registrarDevolucion()"]
-    A --> H["mostrarCatalogo()"]
-    A --> I["mostrarPrestamosActivos()"]
-    A --> J["generarRegistro()"]
+    C --> D["registrarLibro()"]
+    C --> E["buscarLibro()"]
+    C --> F["mostrarDisponibilidad()"]
+    C --> G["registrarPrestamos()"]
+    C --> H["registrarDevolucion()"]
+    C --> I["mostrarCatalogo()"]
+    C --> J["mostrarPrestamosActivos()"]
+    C --> K["generarRegistro()"]
 ```
 
 ---
 
 # Método registrarLibro(titulo, autor, eD)
-
-Explicación:
-
-* Verifica si el libro ya existe.
-* Si no existe, lo crea.
-* Si ya existe, aumenta la cantidad de ejemplares.
 
 ```mermaid
 flowchart TD
@@ -388,12 +359,6 @@ flowchart TD
 
 # Método buscarLibro(titulo)
 
-Explicación:
-
-* Busca el libro dentro del diccionario.
-* Retorna el libro si existe.
-* Retorna Null si no existe.
-
 ```mermaid
 flowchart TD
 
@@ -413,12 +378,6 @@ flowchart TD
 ---
 
 # Método mostrarDisponibilidad(titulo)
-
-Explicación:
-
-* Busca el libro.
-* Verifica si existe.
-* Comprueba si tiene ejemplares disponibles.
 
 ```mermaid
 flowchart TD
@@ -449,12 +408,6 @@ flowchart TD
 ---
 
 # Método registrarPrestamos(usuario, titulo)
-
-Explicación:
-
-* Verifica disponibilidad.
-* Comprueba si el usuario ya tiene préstamo.
-* Registra el préstamo y reduce existencias.
 
 ```mermaid
 flowchart TD
@@ -490,12 +443,6 @@ flowchart TD
 
 # Método registrarDevolucion(usuario)
 
-Explicación:
-
-* Verifica si el usuario tiene un préstamo activo.
-* Incrementa disponibilidad.
-* Elimina el préstamo.
-
 ```mermaid
 flowchart TD
 
@@ -519,11 +466,6 @@ flowchart TD
 ---
 
 # Método mostrarCatalogo()
-
-Explicación:
-
-* Recorre todos los libros.
-* Muestra datos y disponibilidad.
 
 ```mermaid
 flowchart TD
@@ -557,11 +499,6 @@ flowchart TD
 
 # Método mostrarPrestamosActivos()
 
-Explicación:
-
-* Recorre todos los préstamos activos.
-* Muestra usuario y libro prestado.
-
 ```mermaid
 flowchart TD
 
@@ -583,10 +520,6 @@ flowchart TD
 ---
 
 # Método generarRegistro()
-
-Explicación:
-
-* Genera un reporte general del sistema.
 
 ```mermaid
 flowchart TD
